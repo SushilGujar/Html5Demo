@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link href="css/default.css" type="text/css" rel="stylesheet" />
+		<script src="js/jquery-1.8.2.js"></script>
+		<script>
+			$(document).ready(function(){ 
+				jQuery.event.props.push('dataTransfer');
+				$('#target').on('dragenter', preventDefault);
+				$('#target').on('dragover', preventDefault);
+				$('#target').on('drop', dropItem);
+			});
+			
+			function preventDefault(e) {
+				e.preventDefault();
+			}
+			
+			function dropItem(e) {
+				var files = e.dataTransfer.files, $table = $('#fileInfo'), i = 0;
+				$table.html('<thead><tr><th>Name</th><th>Type</th><th>Size</th></tr></thead>');
+				for(i = 0; i < files.length; i++)
+					{
+						$('<tr><td>' + files[i].name + '</td><td>' 
+						  			 + files[i].type + '</td><td>' 
+						  			 + files[i].size + '</td></tr>').appendTo($table);
+					}
+				preventDefault(e);
+			}
+		</script>
+		
+	</head>
+	<body>
+		<div  id="target"><p>Drag and Drop files here...</p></div>
+		<table id="fileInfo">
+			<caption>Files Attached</caption>
+		</table>
+	</body>
+</html>
+</html>

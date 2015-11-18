@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="js/jquery-1.8.2.js"></script>
+		<script>
+		$(document).ready(function(){ draw();
+									drawText();});
+		function draw()
+			{
+				var canvas = document.getElementById('myCanvas');
+				var ctx = canvas.getContext('2d');
+				ctx.fillRect(100, 100, 240, 200);
+			}
+			
+		function drawText() {
+				var canvas = document.getElementById('myCanvas'), 
+					ctx = canvas.getContext('2d');
+					ctx.strokeStyle = 'magenta';
+					ctx.fillStyle = 'yellow';
+					ctx.lineWidth = 2;
+					ctx.font = "bold 100pt TimesNewRoman";
+					ctx.beginPath();
+					ctx.moveTo(100, 300);
+					ctx.lineTo(700, 300);
+					ctx.stroke();
+					ctx.strokeStyle = 'blue';
+					ctx.fillText("Hello", 400, 300);
+					ctx.strokeText("Hello", 400, 300);
+		}
+			
+		</script>
+		
+	</head>
+	<body>
+		<canvas id="myCanvas" width="800" height="600">You need a browser that supports canvas!</canvas>
+	</body>
+</html>

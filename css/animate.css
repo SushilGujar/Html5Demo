@@ -1,0 +1,25 @@
+@keyframes Basic
+{
+	from 
+	{
+		background: hsl(40, 10%, 70%);
+	}
+	to
+	{
+		background: hsl(40, 100%, 70%);
+		color: blue;
+	}
+}
+
+#touchme
+{
+	background: hsl(40, 30%, 30%);
+	color: antiquewhite;
+}
+
+#touchme:hover
+{
+	animation-name: Basic;
+	animation-duration: 2s;
+	
+}
